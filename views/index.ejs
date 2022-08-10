@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+
+
+  <div id="background">
+
+  </div>
+
+  <h2>
+    Hello there 👋, I'm here to show you the wheather
+  </h2>
+
+
+
+  <div id="main-container">
+
+    <p>
+      <%= response.data.weather[0].main %>
+    </p>
+    <p>
+      <%= response.data.main.temp%>
+    </p>
+    <p>
+      <%= response.data.main.temp_min %>
+    </p>
+    <p>
+      <%= response.data.main.temp_max %>
+    </p>
+
+
+
+  </div>
+
+
+
+
+</body>
+
+</html>

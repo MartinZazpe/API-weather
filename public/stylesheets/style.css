@@ -1,0 +1,42 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#background {
+  background: url('../images/mountain-bg.jpeg');
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  position: absolute;
+  background-size: cover;
+  opacity: 0.5;
+}
+
+#main-container {
+  align-self: center;
+  width: 400px;
+  height: 400px;
+  background-color: rgba(128, 221, 233, 0.8);
+  border-radius: 10px;
+}
+
+h2 {
+  padding-bottom: 20px;
+  font-size: large;
+}
+
+#test-p {
+  display: flex;
+  flex-flow: column wrap;
+}
