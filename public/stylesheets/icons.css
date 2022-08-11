@@ -1,0 +1,189 @@
+#icon {
+    display: inline-block;
+    width: 18px;
+    height: 15px;
+    z-index: 10;
+}
+
+
+.clear-day {
+    background-image: url('../../images/icons/clear-day.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+.clear-night {
+    background-image: url('../../images/icons/clear-night.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+
+.cloudy {
+    background-image: url('../../images/icons/cloudy.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+.fog {
+    background-image: url('../../images/icons/fog.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+.hail {
+    background-image: url('../../images/icons/hail.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+.partly-cloudy-day {
+    background-image: url('../../images/icons/partly-cloudy-day.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+.partly-cloudy-night {
+    background-image: url('../../images/icons/partly-cloudy-night.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+.rain-snow-showers-day {
+    background-image: url('../../images/icons/rain-snow-showers-day.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+.rain-snow-showers-night {
+    background-image: url('../../images/icons/rain-snow-showers-night.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+
+.rain-snow {
+    background-image: url('../../images/icons/rain-snow.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+
+
+.rain {
+    background-image: url('../../images/icons/rain.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+
+.showers-day {
+    background-image: url('../../images/icons/showers-day.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+
+.showers-night {
+    background-image: url('../../images/icons/showers-night.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+.sleet {
+    background-image: url('../../images/icons/sleet.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+.snow-showers-day {
+    background-image: url('../../images/icons/snow-showers-day.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+.snow-showers-night {
+    background-image: url('../../images/icons/snow-showers-night.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+.snow {
+    background-image: url('../../images/icons/snow.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+.thunder-rain {
+    background-image: url('../../images/icons/thunder-rain.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+.thunder-showers-day {
+    background-image: url('../../images/icons/thunder-showers-day.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+.thunder-showers-night {
+    background-image: url('../../images/icons/thunder-showers-night.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+.thunder {
+    background-image: url('../../images/icons/thunder.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}
+
+.wind {
+    background-image: url('../../images/icons/wind.png');
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: cover;
+    z-index: 10;
+}

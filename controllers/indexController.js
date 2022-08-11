@@ -7,31 +7,41 @@ module.exports = {
 
     index: (req, res) => {
 
-        var apiKey = "52d1600eff760f37daaf81f7c3a10a55"
 
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${apiKey}&units=metric`).then((response) => {
+        var apiKeyVisual = "EK32YVYX8MHWMWU8ETL698SWP"
+
+        axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/London,UK/2022-08-11/2022-08-15?key=${apiKeyVisual} `).then((response) => {
+
+            // console.log(response.data.days[0].tempmax)
+
             res.render('index', { response })
-        })
-            .catch((error => {
-                console.log(error)
-            }))
-        //  lat={lat}&lon={lon}
+
+        }).catch((error => {
+            console.log(error)
+        }))
+
     },
     find: (req, res) => {
 
+        var apiKeyVisual = "EK32YVYX8MHWMWU8ETL698SWP"
         var apiKey = "52d1600eff760f37daaf81f7c3a10a55"
         var lat
         var lon
-
-
 
         let userSearch = req.body.userSearch
 
         axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${userSearch}&appid=${apiKey}`).then((response) => {
             lat = response.data.coord["lat"]
             lon = response.data.coord["lon"]
-            axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=en&lang=en`).then((data) => {
-                console.log(data)
+            let todayDate = new Date()
+            var date = todayDate.getFullYear() + '-' + (todayDate.getMonth() + 1) + '-' + todayDate.getDate()
+            var endDate = todayDate.getFullYear() + '-' + (todayDate.getMonth() + 1) + '-' + (todayDate.getDate() + 4)
+
+            axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}/${date}/${endDate}?key=${apiKeyVisual}`).then((data) => {
+
+
+                // console.log(data.data)
+
                 res.render('index', { foundCountry: data })
             })
         }).catch((error) => {

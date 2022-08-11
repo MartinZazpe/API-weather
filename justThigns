@@ -1,0 +1,34 @@
+         <% let day = todayDate.getDay() %>
+                    <%= weekDays[day] %>
+
+
+                      <%=weekDays[today(element.dt * 1000).getDay()] %>
+
+
+
+
+
+  let dates = response.data.list.forEach(element => {
+    return
+  })
+
+    <%=weekDays[new Date(Date.UTC(element.dt * 1000)).getDay()] %>
+
+
+
+
+
+
+
+      <p>
+
+        <%=weekDays[new Date(element.dt * 1000).getDay() ] %>
+      </p>
+
+
+
+              <% let todayDate = new Date(foundCountry.data.list[0].dt * 1000) %>
+
+
+
+                <% if (response.data.days != response.data.days[0]) { %>

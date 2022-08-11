@@ -2,7 +2,9 @@
 <html>
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/icons.css' />
   <title>Weatherize</title>
 </head>
 
@@ -30,60 +32,126 @@
         <option value="Norway">Norway</option>
         <option value="Uruguay">Uruguay</option>
       </select> -->
-      <button type="submit">Find!</button>
+      <button type="submit">Search</button>
     </form>
   </div>
 
 
   <div id="main-container">
-
     <% if(locals.response) { %>
-      <p>
-        <%= response.data.weather[0].main %>
-      </p>
-      <p>
-        <%= response.data.main.temp%>
-      </p>
-      <p>
-        <%= response.data.main.temp_min %>
-      </p>
-      <p>
-        <%= response.data.main.temp_max %>
-      </p>
-      <% } %>
+      <% let weekdays=["Sunday", "Monday" , "Tuesday" , "Wednesday" , "Thursday" , "Friday" , "Saturday" ] %>
+        <div id="data-container">
+          <div id="today-container">
+            <p id="country">
+              <%= response.data.timezone %>
+                <p class="<%= response.data.days[0].icon%>">Today</p>
+            </p>
 
-
-        <% if(locals.foundCountry) { %>
-          <p>
-            <%= foundCountry.data.main.temp%>
-          </p>
-          <p>
-            <%= foundCountry.data.main.temp_min %>
-          </p>
-          <p>
-            <%= foundCountry.data.main.temp_max %>
-          </p>
-          <% } %>
-
-
-
-            <% if(locals.notFound) { %>
-
-              <%= notFound.msg %>
-
+            <p id="temp">
+              <%= Math.round((response.data.currentConditions.temp - 32) * 5 /9 )%>º
+            </p>
+            <div id="min-max">
+              <p id="temp-min"> min
+                <%= Math.round((response.data.days[0].tempmin -32) * 5/9)%>º
+              </p>
+              <p id="temp-max"> max
+                <%= Math.round((response.data.days[0].tempmax - 32) * 5/9)%>º
+              </p>
+            </div>
+          </div>
+          <div id="forecast">
+            <% response.data.days.forEach(element=> { %>
+              <% if(element !=response.data.days[0]) { %>
+                <div id="forecast-info">
+                  <div id="forecast-info-info">
+                    <p class="weekday">
+                      <% let convertToDay=new Date(element.datetime).getDay()%>
+                        <%= weekdays[convertToDay] %>
+                    </p>
+                    <p id="forecast-temp">
+                      <%= Math.round((element.temp -32)*5/9) %>º
+                        <i id="icon" class="<%=element.icon%>">
+                        </i>
+                    </p>
+                  </div>
+                </div>
                 <% } %>
+                  <% }) %>
+
+          </div>
+        </div>
+
+        <% } %>
+
+          <% if(locals.notFound) { %>
+            <div id="error-div">
+              <%= notFound.msg %>
+                or go back <a id="go-home" href="/" style="color:blue">Home</a>
+            </div>
+            <% } %>
+
+              <% if(locals.foundCountry) { %>
+                <% let weekdays=["Sunday", "Monday" , "Tuesday" , "Wednesday" , "Thursday" , "Friday" , "Saturday" ] %>
+                  <div id="data-container">
+                    <div id="today-container">
+                      <p id="country">
+                        <%= foundCountry.data.timezone %>
+                          <p class="<%= foundCountry.data.days[0].icon%>">Today</p>
+                      </p>
+                      <p id="temp">
+                        <%= Math.round((foundCountry.data.days[0].temp - 32) *5/9)%>º
+                      </p>
+
+                      <div id="min-max">
+                        <p id="temp-min"> min
+                          <%= Math.round((foundCountry.data.days[0].tempmin -32)*5/9 )%>º
+                        </p>
+                        <p id="temp-max"> max
+                          <%= Math.round((foundCountry.data.days[0].tempmax -32) *5/9)%>º
+                        </p>
+                      </div>
+                    </div>
+                    <div id="forecast">
+                      <% foundCountry.data.days.forEach(element=> { %>
+                        <% if(element !=foundCountry.data.days[0]) { %>
+                          <div id="forecast-info">
+                            <div id="forecast-info-info">
+                              <p class="weekday">
+                                <% let convertToDay=new Date(element.datetime).getDay()%>
+                                  <%= weekdays[convertToDay] %>
+                              </p>
+                              <p id="forecast-temp">
+                                <%= Math.round((element.temp -32)*5/9) %>º
+                                  <i id="icon" class="<%=element.icon%>">
+                                  </i>
+                              </p>
+                            </div>
+                          </div>
+                          <% } %>
+                            <% }) %>
+
+                    </div>
+                  </div>
 
   </div>
-
-
-  <div id="help">
-    <p>Search for a country by country name and in English for best results.</p>
-    <p>Min and max temperatures may be the same if the API lacks information for that search</p>
   </div>
+  <% } %>
 
 
 
-  <footer></footer>
+    </div>
+
+
+    <div id="help">
+      <p><span style="color:blue">Tip:</span> Search by country or city to get the closest available result</p>
+      <p><span style="color:blue">Tip:</span> If you can´t find the desired result by country, try searching by city</p>
+    </div>
+
+
+
+    <footer>
+      <p>© Made by <span id="name" style="color:white">Martin Zazpe</span></p>
+    </footer>
 
 
 </body>
