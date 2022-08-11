@@ -3,6 +3,7 @@
 
 <head>
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title>Weatherize</title>
 </head>
 
 <body>
@@ -12,32 +13,77 @@
 
   </div>
 
-  <h2>
+  <!-- <h2>
     Hello there 👋, I'm here to show you the wheather
-  </h2>
+  </h2> -->
 
+
+  <div id="form-title-container">
+    <h2>Choose a country and check out the weather</h2>
+    <form action="/" method="POST">
+      <input type="search" name="userSearch">
+      <!-- <select name="select" id="">
+        <option value="Spain">Spain</option>
+        <option value="London">London</option>
+        <option value="USA">USA</option>
+        <option value="Australia">Australia</option>
+        <option value="Norway">Norway</option>
+        <option value="Uruguay">Uruguay</option>
+      </select> -->
+      <button type="submit">Find!</button>
+    </form>
+  </div>
 
 
   <div id="main-container">
 
-    <p>
-      <%= response.data.weather[0].main %>
-    </p>
-    <p>
-      <%= response.data.main.temp%>
-    </p>
-    <p>
-      <%= response.data.main.temp_min %>
-    </p>
-    <p>
-      <%= response.data.main.temp_max %>
-    </p>
+    <% if(locals.response) { %>
+      <p>
+        <%= response.data.weather[0].main %>
+      </p>
+      <p>
+        <%= response.data.main.temp%>
+      </p>
+      <p>
+        <%= response.data.main.temp_min %>
+      </p>
+      <p>
+        <%= response.data.main.temp_max %>
+      </p>
+      <% } %>
 
 
+        <% if(locals.foundCountry) { %>
+          <p>
+            <%= foundCountry.data.main.temp%>
+          </p>
+          <p>
+            <%= foundCountry.data.main.temp_min %>
+          </p>
+          <p>
+            <%= foundCountry.data.main.temp_max %>
+          </p>
+          <% } %>
+
+
+
+            <% if(locals.notFound) { %>
+
+              <%= notFound.msg %>
+
+                <% } %>
 
   </div>
 
 
+  <div id="help">
+    <p>Search for a country by country name and in English for best results.</p>
+    <p>Min and max temperatures may be the same if the API lacks information for that search</p>
+  </div>
+
+
+
+  <footer></footer>
 
 
 </body>
