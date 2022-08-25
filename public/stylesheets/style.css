@@ -45,11 +45,6 @@ h2 {
 }
 
 
-#help {
-  height: 200px;
-  width: 100%;
-  text-align: center;
-}
 
 
 
@@ -92,6 +87,13 @@ h2 {
 
 #form-title-container form button:hover {
   cursor: pointer;
+}
+
+
+#help {
+  height: 200px;
+  width: 100%;
+  text-align: center;
 }
 
 
@@ -182,3 +184,11 @@ footer {
 #go-home:hover {
   cursor: pointer;
 }
+
+
+/* @media(max-width:380px) {
+  body {
+    height: calc(100vh - 80px);
+    overflow: scroll;
+  }
+} */

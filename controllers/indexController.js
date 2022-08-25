@@ -7,12 +7,13 @@ module.exports = {
 
     index: (req, res) => {
 
-
-        var apiKeyVisual = "EK32YVYX8MHWMWU8ETL698SWP"
+        var apiKeyVisual = "RNMTQR4HN992YPFDY8EV6QGXM"
 
         axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/London,UK/2022-08-11/2022-08-15?key=${apiKeyVisual} `).then((response) => {
 
             // console.log(response.data.days[0].tempmax)
+
+            console.log(response.data)
 
             res.render('index', { response })
 
@@ -23,7 +24,7 @@ module.exports = {
     },
     find: (req, res) => {
 
-        var apiKeyVisual = "EK32YVYX8MHWMWU8ETL698SWP"
+        var apiKeyVisual = "RNMTQR4HN992YPFDY8EV6QGXM"
         var apiKey = "52d1600eff760f37daaf81f7c3a10a55"
         var lat
         var lon
