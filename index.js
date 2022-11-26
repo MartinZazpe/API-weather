@@ -5,9 +5,15 @@ var cookieParser = require('cookie-parser')
 var logger = require('morgan')
 var bodyParser = require('body-parser')
 
-var indexRouter = require('./routes/index')
+var indexRouter = require('./api/mainRoutes')
 
 var app = express()
+const port = process.env.PORT || 3000
+
+app.listen(port, () => {
+  console.log(`server is running in port ${port}`)
+})
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
