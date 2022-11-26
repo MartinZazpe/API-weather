@@ -38,102 +38,119 @@
 
 
   <div id="main-container">
-    <% if(locals.response) { %>
-      <% let weekdays=["Sunday", "Monday" , "Tuesday" , "Wednesday" , "Thursday" , "Friday" , "Saturday" ] %>
-        <div id="data-container">
-          <div id="today-container">
-            <p id="country">
-              <%= response.data.timezone %>
-                <p class="<%= response.data.days[0].icon%>">Today</p>
-            </p>
 
 
-            <p id="temp">
-              <%= Math.round((response.data.days[0].temp - 32) * 5 /9 )%>º
-            </p>
+    <% if(locals.error) { %>
+      <h5>Sorry, please try again tomorrow</h5>
+      <p>
+        <%= error.response.data %>
+      </p>
+      <% } %>
 
-            <div id="min-max">
-              <p id="temp-min"> min
-                <%= Math.round((response.data.days[0].tempmin -32) * 5/9)%>º
-              </p>
-              <p id="temp-max"> max
-                <%= Math.round((response.data.days[0].tempmax - 32) * 5/9)%>º
-              </p>
-            </div>
-          </div>
-          <div id="forecast">
-            <% response.data.days.forEach(element=> { %>
-              <% if(element !=response.data.days[0]) { %>
-                <div id="forecast-info">
-                  <div id="forecast-info-info">
-                    <p class="weekday">
-                      <% let convertToDay=new Date(element.datetime).getDay()%>
-                        <%= weekdays[convertToDay] %>
+
+        <% if(locals.notFound) { %>
+          <p>
+            <%= notFound.msg%>
+          </p>
+          <% } %>
+
+
+            <% if(locals.response) { %>
+              <% let weekdays=["Sunday", "Monday" , "Tuesday" , "Wednesday" , "Thursday" , "Friday" , "Saturday" ] %>
+                <div id="data-container">
+                  <div id="today-container">
+                    <p id="country">
+                      <%= response.data.timezone %>
+                        <p class="<%= response.data.days[0].icon%>">Today</p>
                     </p>
-                    <p id="forecast-temp">
-                      <%= Math.round((element.temp -32)*5/9) %>º
-                        <i id="icon" class="<%=element.icon%>">
-                        </i>
+
+
+                    <p id="temp">
+                      <%= Math.round((response.data.days[0].temp - 32) * 5 /9 )%>º
                     </p>
+
+                    <div id="min-max">
+                      <p id="temp-min"> min
+                        <%= Math.round((response.data.days[0].tempmin -32) * 5/9)%>º
+                      </p>
+                      <p id="temp-max"> max
+                        <%= Math.round((response.data.days[0].tempmax - 32) * 5/9)%>º
+                      </p>
+                    </div>
+                  </div>
+                  <div id="forecast">
+                    <% response.data.days.forEach(element=> { %>
+                      <% if(element !=response.data.days[0]) { %>
+                        <div id="forecast-info">
+                          <div id="forecast-info-info">
+                            <p class="weekday">
+                              <% let convertToDay=new Date(element.datetime).getDay()%>
+                                <%= weekdays[convertToDay] %>
+                            </p>
+                            <p id="forecast-temp">
+                              <%= Math.round((element.temp -32)*5/9) %>º
+                                <i id="icon" class="<%=element.icon%>">
+                                </i>
+                            </p>
+                          </div>
+                        </div>
+                        <% } %>
+                          <% }) %>
+
                   </div>
                 </div>
+
                 <% } %>
-                  <% }) %>
 
-          </div>
-        </div>
-
-        <% } %>
-
-          <% if(locals.notFound) { %>
-            <div id="error-div">
-              <%= notFound.msg %>
-                or go back <a id="go-home" href="/" style="color:blue">Home</a>
-            </div>
-            <% } %>
-
-              <% if(locals.foundCountry) { %>
-                <% let weekdays=["Sunday", "Monday" , "Tuesday" , "Wednesday" , "Thursday" , "Friday" , "Saturday" ] %>
-                  <div id="data-container">
-                    <div id="today-container">
-                      <p id="country">
-                        <%= foundCountry.data.timezone %>
-                          <p class="<%= foundCountry.data.days[0].icon%>">Today</p>
-                      </p>
-                      <p id="temp">
-                        <%= Math.round((foundCountry.data.days[0].temp - 32) *5/9)%>º
-                      </p>
-
-                      <div id="min-max">
-                        <p id="temp-min"> min
-                          <%= Math.round((foundCountry.data.days[0].tempmin -32)*5/9 )%>º
-                        </p>
-                        <p id="temp-max"> max
-                          <%= Math.round((foundCountry.data.days[0].tempmax -32) *5/9)%>º
-                        </p>
-                      </div>
+                  <% if(locals.notFound) { %>
+                    <div id="error-div">
+                      <%= notFound.msg %>
+                        or go back <a id="go-home" href="/" style="color:blue">Home</a>
                     </div>
-                    <div id="forecast">
-                      <% foundCountry.data.days.forEach(element=> { %>
-                        <% if(element !=foundCountry.data.days[0]) { %>
-                          <div id="forecast-info">
-                            <div id="forecast-info-info">
-                              <p class="weekday">
-                                <% let convertToDay=new Date(element.datetime).getDay()%>
-                                  <%= weekdays[convertToDay] %>
+                    <% } %>
+
+                      <% if(locals.foundCountry) { %>
+                        <% let weekdays=["Sunday", "Monday" , "Tuesday" , "Wednesday" , "Thursday" , "Friday" , "Saturday" ] %>
+                          <div id="data-container">
+                            <div id="today-container">
+                              <p id="country">
+                                <%= foundCountry.data.timezone %>
+                                  <p class="<%= foundCountry.data.days[0].icon%>">Today</p>
                               </p>
-                              <p id="forecast-temp">
-                                <%= Math.round((element.temp -32)*5/9) %>º
-                                  <i id="icon" class="<%=element.icon%>">
-                                  </i>
+                              <p id="temp">
+                                <%= Math.round((foundCountry.data.days[0].temp - 32) *5/9)%>º
                               </p>
+
+                              <div id="min-max">
+                                <p id="temp-min"> min
+                                  <%= Math.round((foundCountry.data.days[0].tempmin -32)*5/9 )%>º
+                                </p>
+                                <p id="temp-max"> max
+                                  <%= Math.round((foundCountry.data.days[0].tempmax -32) *5/9)%>º
+                                </p>
+                              </div>
+                            </div>
+                            <div id="forecast">
+                              <% foundCountry.data.days.forEach(element=> { %>
+                                <% if(element !=foundCountry.data.days[0]) { %>
+                                  <div id="forecast-info">
+                                    <div id="forecast-info-info">
+                                      <p class="weekday">
+                                        <% let convertToDay=new Date(element.datetime).getDay()%>
+                                          <%= weekdays[convertToDay] %>
+                                      </p>
+                                      <p id="forecast-temp">
+                                        <%= Math.round((element.temp -32)*5/9) %>º
+                                          <i id="icon" class="<%=element.icon%>">
+                                          </i>
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <% } %>
+                                    <% }) %>
+
                             </div>
                           </div>
-                          <% } %>
-                            <% }) %>
-
-                    </div>
-                  </div>
 
   </div>
   </div>
