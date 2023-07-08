@@ -6,11 +6,14 @@ var logger = require('morgan')
 var bodyParser = require('body-parser')
 const cors = require('cors')
 
-app.use(cors())
 
 var indexRouter = require('./api/mainRoutes')
 
 var app = express()
+
+
+app.use(cors())
+
 const port = process.env.PORT || 3000
 
 app.listen(port, () => {
