@@ -4,6 +4,9 @@ var path = require('path')
 var cookieParser = require('cookie-parser')
 var logger = require('morgan')
 var bodyParser = require('body-parser')
+const cors = require('cors')
+
+app.use(cors())
 
 var indexRouter = require('./api/mainRoutes')
 
